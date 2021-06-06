@@ -1,0 +1,18 @@
+Mailbox monitor 
+
+This is intended to monitor your mailbox for the door being opened and an item being inside it.
+Todo this, it utilizes a magnetic reed switch to monitor the door being opened, and uses
+Infrared sensors to detemin if something is inside the mailbox by determining if the "beam" 
+has been broken or not.
+
+It will check the states of the sensors every 10-20 seconds (as you define), and will automatically 
+send updates on door opening with an interupt sent to the module from the reed switch.
+
+As an aside adon for this project, every thirty minutes, the sytem should wake up, take measurements 
+and send those over the wireless interface.
+
+The system should be modular. Wireless, sensors, etc. Everything should function on its own, just as 
+if its an real time operating system. for example. Since the system has to check the sensors every 10-20 
+seconds, it will store the values in memory (flash in the case of the ESP8266). When its time to update 
+the home controller (wifi, 433Mhz, etc) it will collect the latest known values and send those instead of 
+spending additional compute cycles gathering the new data.
